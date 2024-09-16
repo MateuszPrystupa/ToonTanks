@@ -11,6 +11,15 @@ ABasePawn::ABasePawn()
 	PrimaryActorTick.bCanEverTick = true;
 	CapsuleComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule collider"));
 	RootComponent = CapsuleComp;
+
+	BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
+	BaseMesh->SetupAttachment(CapsuleComp);
+
+	TurertMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turet Mesh"));
+	TurertMesh->SetupAttachment(BaseMesh);
+
+	SpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("SpawnPoint Mesh"));
+	SpawnPoint->SetupAttachment(TurertMesh);
 }
 
 // Called when the game starts or when spawned

@@ -24,6 +24,15 @@ private:
 	UPROPERTY(EditAnywhere)
 	class UCapsuleComponent* CapsuleComp;
 
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* BaseMesh;
+
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* TurertMesh;
+
+	UPROPERTY(EditAnywhere)
+	USceneComponent* SpawnPoint;
+
 	
 
 public:	
