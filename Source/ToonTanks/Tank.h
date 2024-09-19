@@ -17,12 +17,16 @@ class TOONTANKS_API ATank : public ABasePawn
 public:
 
 	void Move(float Value);
+	void Turn(float Value);
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Speed = 350.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float TurnRate = 150.f;
 private:
 	ATank();
 	UPROPERTY(EditAnywhere, Category = "Components")
