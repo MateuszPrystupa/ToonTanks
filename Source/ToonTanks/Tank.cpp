@@ -6,6 +6,8 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components/InputComponent.h"
+#include "Engine/World.h"
 
 
 ATank::ATank()
@@ -24,6 +26,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
     PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
     PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
+    PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
 
 void ATank::Move(float Value)
@@ -41,3 +44,16 @@ void ATank::Turn(float Value)
     AddActorLocalRotation(DeltaRotation, true);
 }
 
+void ATank::Fire()
+{
+	FRotator SpawnRotation = FRotator::ZeroRotator;
+    SpawnBulletLocation = FVector(500,0,130);
+    for(int i = 0; i < 10; i++)
+    {
+        GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnBulletLocation, SpawnRotation );
+        UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnBulletLocation.ToString());
+        i++;
+    }
+   // GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnBulletLocation, SpawnRotation );
+   // UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnBulletLocation.ToString());
+}

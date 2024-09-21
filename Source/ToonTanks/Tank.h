@@ -18,6 +18,7 @@ public:
 
 	void Move(float Value);
 	void Turn(float Value);
+	void Fire();
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -34,6 +35,16 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Components")
 	class UCameraComponent* Camera;
+
+	UPROPERTY(EditAnywhere, Category = "Sprawning")
+	TSubclassOf<AActor> BulletToSpawn;
+
+	UPROPERTY(EditAnywhere, Category = "Spawning")
+	FVector SpawnBulletLocation;
+
+
+
+
 
 
 };

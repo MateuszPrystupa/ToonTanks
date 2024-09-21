@@ -14,20 +14,21 @@ ABasePawn::ABasePawn()
 	BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
 	BaseMesh->SetupAttachment(CapsuleComp);
 
-	TurertMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turet Mesh"));
-	TurertMesh->SetupAttachment(BaseMesh);
+	TuretMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turet Mesh"));
+	TuretMesh->SetupAttachment(BaseMesh);
 
 	SpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("SpawnPoint Mesh"));
-	SpawnPoint->SetupAttachment(TurertMesh);
+	SpawnPoint->SetupAttachment(TuretMesh);
+
+	//SpawnPoint = NewObject<USceneComponent>(this, UStaticMeshComponent::TuretMesh, RF_Standalone);
+	//SpawnPoint->RegisterComponent();
+	//SpawnPoint->AttachToComponent(Bullet);
 }
 
 // Called when the game starts or when spawned
 void ABasePawn::BeginPlay()
 {
 	Super::BeginPlay();
-
-
-
 }
 
 // Called every frame
