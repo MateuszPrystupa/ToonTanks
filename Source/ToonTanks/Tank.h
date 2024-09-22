@@ -28,6 +28,16 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float TurnRate = 150.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float BulletImpulse = 10000.f;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
+	//USceneComponent* SpawnPoint;
+
+	UPROPERTY(EditAnywhere, Category = "Spawning")
+	TSubclassOf<AActor> BulletToSpawn;
+
 private:
 	ATank();
 	UPROPERTY(EditAnywhere, Category = "Components")
@@ -36,11 +46,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Components")
 	class UCameraComponent* Camera;
 
-	UPROPERTY(EditAnywhere, Category = "Sprawning")
-	TSubclassOf<AActor> BulletToSpawn;
 
-	UPROPERTY(EditAnywhere, Category = "Spawning")
-	FVector SpawnBulletLocation;
 
 
 

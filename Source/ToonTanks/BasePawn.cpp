@@ -14,11 +14,11 @@ ABasePawn::ABasePawn()
 	BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
 	BaseMesh->SetupAttachment(CapsuleComp);
 
-	TuretMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turet Mesh"));
-	TuretMesh->SetupAttachment(BaseMesh);
+	TurertMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turet Mesh"));
+	TurertMesh->SetupAttachment(BaseMesh);
 
 	SpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("SpawnPoint Mesh"));
-	SpawnPoint->SetupAttachment(TuretMesh);
+	SpawnPoint->SetupAttachment(TurertMesh);
 
 	//SpawnPoint = NewObject<USceneComponent>(this, UStaticMeshComponent::TuretMesh, RF_Standalone);
 	//SpawnPoint->RegisterComponent();

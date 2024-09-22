@@ -8,6 +8,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Components/InputComponent.h"
 #include "Engine/World.h"
+#include "Physics/ImmediatePhysics/ImmediatePhysicsChaos/ImmediatePhysicsActorHandle_Chaos.h"
 
 
 ATank::ATank()
@@ -16,7 +17,7 @@ ATank::ATank()
     Arm->SetupAttachment(RootComponent);
 
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-    Camera->SetupAttachment(Arm);
+    Camera->SetupAttachment(Arm);   
 }
 
 // Called to bind functionality to input
@@ -46,14 +47,24 @@ void ATank::Turn(float Value)
 
 void ATank::Fire()
 {
-	FRotator SpawnRotation = FRotator::ZeroRotator;
-    SpawnBulletLocation = FVector(500,0,130);
-    for(int i = 0; i < 10; i++)
+    if(SpawnPoint != nullptr)
     {
-        GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnBulletLocation, SpawnRotation );
-        UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnBulletLocation.ToString());
-        i++;
+        FVector SpawnLocation = SpawnPoint->GetComponentLocation();
+        FRotator SpawnRotation = SpawnPoint->GetComponentRotation();
+
+        FActorSpawnParameters SpawnParams;
+        SpawnParams.Owner = this;
+
+        AActor* BulletSpawned = GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnLocation, SpawnRotation, SpawnParams);
+
+        if(BulletSpawned)
+        {
+            UPrimitiveComponent* BulletMesh = BulletSpawned->FindComponentByClass<UPrimitiveComponent>();
+            FVector ImpulseDirection = SpawnRotation.Vector();
+            BulletMesh -> AddImpulse(ImpulseDirection * BulletImpulse);
+        }
+
+        UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnLocation.ToString()); 
+
     }
-   // GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnBulletLocation, SpawnRotation );
-   // UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnBulletLocation.ToString());
 }
