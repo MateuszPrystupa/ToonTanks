@@ -23,6 +23,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	FTimerHandle TimerHandle;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Speed = 350.f;
 

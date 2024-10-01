@@ -62,8 +62,11 @@ void ATank::Fire()
             UPrimitiveComponent* BulletMesh = BulletSpawned->FindComponentByClass<UPrimitiveComponent>();
             FVector ImpulseDirection = SpawnRotation.Vector();
             BulletMesh -> AddImpulse(ImpulseDirection * BulletImpulse);
+            GetWorld() ->GetTimerManager().SetTimer(TimerHandle, this, &ATank::Fire, 60.f); 
         }
-
+        
+        
+	    
         UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnLocation.ToString()); 
 
     }
