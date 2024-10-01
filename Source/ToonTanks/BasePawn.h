@@ -20,7 +20,7 @@ public:
 	int maxHealth = 100;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int maxHealthTuret = 500;
+	float maxHealthTuret = 500;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* SpawnPoint;
