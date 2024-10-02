@@ -47,14 +47,14 @@ void ATanks::Turn(float Value)
 void ATanks::Fire()
 {
     
-	FRotator SpawnRotation = FRotator::ZeroRotator;
-    FVector SpawnBulletLocation = FVector(500,0,130);
-    for(int i = 0; i < 10; i++)
-    {
-        GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnBulletLocation, SpawnRotation );
-        UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnBulletLocation.ToString());
-        i++;
-    }
+     //   FRotator SpawnRotation = FRotator::ZeroRotator;
+     //   FVector SpawnBulletLocation = FVector(500,0,130);
+      //  for(int i = 0; i < 10; i++)
+      //  {
+      //      GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnBulletLocation, SpawnRotation );
+      //      UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnBulletLocation.ToString());
+      //      i++;
+      //  }
    // GetWorld()->SpawnActor<AActor>(BulletToSpawn, SpawnBulletLocation, SpawnRotation );
    // UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnBulletLocation.ToString());
 

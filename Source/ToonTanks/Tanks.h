@@ -29,11 +29,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float TurnRate = 150.f;
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
-	//USceneComponent* SpawnPoint;
-
-	UPROPERTY(EditAnywhere, Category = "Spawning")
-	TSubclassOf<AActor> BulletToSpawn;
 
 private:
 	ATanks();

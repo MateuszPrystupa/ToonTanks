@@ -23,7 +23,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	FTimerHandle TimerHandle;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Speed = 350.f;
@@ -31,14 +30,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float TurnRate = 150.f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float BulletImpulse = 10000.f;
-
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
-	//USceneComponent* SpawnPoint;
-
-	UPROPERTY(EditAnywhere, Category = "Spawning")
-	TSubclassOf<AActor> BulletToSpawn;
 
 private:
 	ATank();

@@ -47,7 +47,7 @@ void ATank::Turn(float Value)
 
 void ATank::Fire()
 {
-    if(SpawnPoint != nullptr)
+   /* if(SpawnPoint != nullptr)
     {
         FVector SpawnLocation = SpawnPoint->GetComponentLocation();
         FRotator SpawnRotation = SpawnPoint->GetComponentRotation();
@@ -62,12 +62,12 @@ void ATank::Fire()
             UPrimitiveComponent* BulletMesh = BulletSpawned->FindComponentByClass<UPrimitiveComponent>();
             FVector ImpulseDirection = SpawnRotation.Vector();
             BulletMesh -> AddImpulse(ImpulseDirection * BulletImpulse);
-            GetWorld() ->GetTimerManager().SetTimer(TimerHandle, this, &ATank::Fire, 60.f); 
+            //GetWorld() ->GetTimerManager().SetTimer(TimerHandle, this, &ATank::Fire, 60.f); 
         }
         
         
 	    
         UE_LOG(LogTemp, Warning, TEXT("Spawn location %s"), *SpawnLocation.ToString()); 
-
-    }
+        
+    }*/
 }
